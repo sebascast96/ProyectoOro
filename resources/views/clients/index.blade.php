@@ -8,7 +8,11 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header">Agregar Cliente</div>
+                    <div class="card-header">Agregar Cliente
+                      <a class="btn btn-success" href="{{ route('clients.create') }}">
+                        Agregar
+                      </a>
+                    </div>
     
                     <div class="card-body">
                         @if (session()->has('message'))
@@ -49,3 +53,5 @@
 </div>
 
 @endsection
+
+@include('clients.modals')

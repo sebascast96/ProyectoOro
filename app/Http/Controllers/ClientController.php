@@ -38,7 +38,7 @@ class ClientController extends Controller
     {
 
         Client::create($request->except('_token'));
-        return route('clients')->with(['message' => 'Guardado']);
+        return redirect('clients');
     }
 
     /**
@@ -49,7 +49,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
