@@ -49,9 +49,15 @@
             "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(filtrado de _MAX_ registros totales)",
             "search":"Buscar",
-            "previous":"Anterior",
-            "next":"Siguiente"
+            "paginate": {
+              "first": "Primero",
+              "last": "Ultimo",
+              "next": "Siguiente",
+              "previous": "Anterior"
+            },
+            "processing":"Procesando.."
         },
+        info: true,
          responsive: true,
           processing: true,
           serverSide: true,
