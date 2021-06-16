@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Yajra\Datatables\Datatables;
 
 class ClientController extends Controller
 {
@@ -12,10 +13,22 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::all();
-        return view('clients.index',['clients'=>$clients]);
+        if ($request->ajax()) {
+            return $this->createDatatable();
+        }
+        return view('clients.index');
+    }
+
+    public function createDatatable()
+    {
+        $clients = Client::query();
+        return Datatables::of($clients)
+        ->addColumn('actions', function ($client) {
+            return view('clients.buttons',compact('client'));
+         })
+         ->make(true);
     }
 
     /**
@@ -38,7 +51,7 @@ class ClientController extends Controller
     {
 
         Client::create($request->except('_token'));
-        return redirect('clients');
+        return route('clients')->with(['message' => 'Guardado']);
     }
 
     /**
@@ -49,7 +62,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**

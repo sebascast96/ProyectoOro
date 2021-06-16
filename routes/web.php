@@ -24,6 +24,8 @@ Route::get('/dashboard', function () {
 
 Route::resource('clients', ClientController::class)->middleware(['auth']);
 
+Route::get('filter-clients',[ClientController::class,'createDatatable']);
+
 require __DIR__.'/auth.php';
 
 Auth::routes();
