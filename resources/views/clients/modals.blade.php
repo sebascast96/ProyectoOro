@@ -1,56 +1,56 @@
 
-    <div class="modal fade" id="usuario">
+    <div class="modal fade" id="client">
         <div class="modal-dialog">
             <div class="modal-content">
-                <div class="modal-header header-nuvem">
+                <div class="modal-header">
+                    <h4 class="modal-title">Datos de Cliente</h4>
                     <button type="button" class="close" data-dismiss="modal"><span
                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title">Datos de Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <center>
-                        <img src="" class="img-circle" id="photo" style="width: 15%;height: 15%;;" alt=""/>
-                    </center>
-                    <div class="row" id="etq">
-                        <div class="form-group col-md-4 col-sm-12">
-                            <small class="lbl_modal">Nombre:</small>
-                            {!! Form::label('name', null, ['class'=>'form-control', 'id'=>'name']) !!}
+                        <div class="form-row mb-3">
+                            <div class="col-6">
+                                <label for="name" class="form-label">Nombre</label>
+                                <input type="text" class="form-control form-control-sm" name="name" id="name" disabled>
+                            </div>
+                            <div class="col-6 ">
+                                <label for="rs" class="form-label">Razón Social</label>
+                                <input type="text" class="form-control form-control-sm" name="rs" id="rs" disabled>
+                            </div>
                         </div>
-                        <div class="form-group col-md-4 col-sm-12">
-                            <small class="lbl_modal">Apellido Paterno:</small>
-                            {!! Form::label('lastNameFather', null, ['class'=>'form-control', 'id'=>'lastNameFather']) !!}
+                        <div class="form-row mb-3">
+                            <div class="col-6">
+                                <label for="name" class="form-label">Nombre Comercial</label>
+                                <input type="text" class="form-control form-control-sm" name="commercial_name" id="commercial_name" disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="name" class="form-label">RFC</label>
+                                <input type="text" class="form-control form-control-sm" name="rfc" id="rfc" disabled>
+                            </div>
                         </div>
-                        <div class="form-group col-md-4 col-sm-12">
-                            <small class="lbl_modal">Apellido Materno:</small>
-                            {!! Form::label('lastNameMother', null, ['class'=>'form-control', 'id'=>'lastNameMother']) !!}
+                        <div class="form-row mb-3">
+                            <div class="col-6">
+                                <label for="name" class="form-label">CURP</label>
+                                <input type="text" class="form-control form-control-sm" name="curp" id="curp" disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="name" class="form-label">Dirección</label>
+                                <input type="text" class="form-control form-control-sm" name="address" id="address" disabled>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row" id="etq">
-                        <div class="form-group col-sm-12 col-md-4">
-                            <small class="lbl_modal">Rol:</small>
-                            {!! Form::label('role', null, ['class'=>'form-control', 'id'=>'role']) !!}
+                        <div class="form-row mb-3">
+                            <div class="col-6">
+                                <label for="name" class="form-label">Cumpleaños</label>
+                                <input type="date" class="form-control form-control-sm" name="birthdate" id="birthdate" disabled>
+                            </div>
+                            <div class="col-6">
+                                <label for="name" class="form-label">Email</label>
+                                <input type="email" class="form-control form-control-sm" name="email" id="email" disabled>
+                            </div>
                         </div>
-                        <div class="form-group col-sm-12 col-md-4">
-                            <small class="lbl_modal">Teléfono:</small>
-                            {!! Form::label('homePhone', null, ['class'=>'form-control', 'id'=>'homePhone']) !!}
-                        </div>
-                        <div class="form-group col-sm-12 col-md-4">
-                            <small class="lbl_modal">Celular:</small>
-                            {!! Form::label('cellPhone', null, ['class'=>'form-control', 'id'=>'cellPhone']) !!}
-                        </div>
-                    </div>
-                    <div class="row" id="etq">
-                        <div class="form-group col-sm-12 col-md-5">
-                            <small class="lbl_modal">Nombre de Usuario:</small>
-                            {!! Form::label('username', null, ['class'=>'form-control', 'id'=>'username']) !!}
-                        </div>
-                        <div class="form-group col-sm-12 col-md-7">
-                            <small class="lbl_modal">Correo:</small>
-                            {!! Form::label('email', null, ['class'=>'form-control', 'id'=>'email']) !!}
-                        </div>
-                    </div>
+                        
                 </div>
-                <div class="modal-footer background-nuvem">
+                <div class="modal-footer">
                     <a href="#" data-dismiss="modal" class="btn btn-default">Cerrar</a>
                 </div>
             </div>

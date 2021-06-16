@@ -14,15 +14,24 @@
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- DataTables -->
-    <script src="//cdn.datatables.net/1.10.7/js/jquery.dataTables.min.js" defer></script>
-
+    <script src="//cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js" defer></script>
+    <script src="//cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js" defer></script>
+    <script src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js" defer></script>
+    <script src="//cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js" defer></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.25/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="//cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap4.min.css">
+
+    
+
 </head>
 <body>
     <div id="app">
@@ -89,5 +98,8 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweet::alert')
 </body>
+
 </html>
