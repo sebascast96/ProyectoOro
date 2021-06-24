@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ClientController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,15 @@ class ClientController extends Controller
         if ($request->ajax()) {
             return $this->createDatatable();
         }
-        return view('clients.index');
+        return view('products.index');
     }
 
     public function createDatatable()
     {
-        $clients = Client::query();
-        return Datatables::of($clients)
-        ->addColumn('actions', function ($client) {
-            return view('clients.buttons',compact('client'));
+        $products = Product::query();
+        return Datatables::of($products)
+        ->addColumn('actions', function ($product) {
+            return view('products.buttons',compact('product'));
          })
          ->make(true);
     }
@@ -38,7 +38,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        //
     }
 
     /**
@@ -49,9 +49,7 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-
-        Client::create($request->except('_token'));
-        return view('clients.index')->with(['message' => 'Guardado']);
+        //
     }
 
     /**
@@ -62,8 +60,7 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        $client = Client::find($id);
-        return response()->json($client, 200);
+        //
     }
 
     /**
@@ -84,11 +81,9 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updat(Request $request)
+    public function update(Request $request, $id)
     {
-        dd($request);
-        Client::where('id', $request->id)->update($request);
-        return view('clients.index')->with(['message' => 'Guardado']);
+        //
     }
 
     /**
@@ -99,7 +94,6 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = Client::find($id);
-        $client->delete();
+        //
     }
 }

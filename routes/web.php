@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ProductController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,10 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+/*Rutas de Clientes*/
 Route::resource('clients', ClientController::class)->middleware(['auth']);
+
+Route::PUT('clients/update',[ClientController::class,'updat'])->name('clients.updat');
 
 Route::get('filter-clients',[ClientController::class,'createDatatable']);
 
@@ -31,3 +36,6 @@ require __DIR__.'/auth.php';
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*Rutas de Productos*/
+Route::resource('products', ProductController::class)->middleware(['auth']);

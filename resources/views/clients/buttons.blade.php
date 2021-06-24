@@ -3,7 +3,7 @@
     <i class="glyphicon glyphicon-info-sign"></i>
     <t class="hidden-xs">Mostrar</t>
 </a>
-<a class="btn btn-primary" >
+<a data-toggle="modal" client_id="{{ $client->id }}" data-target="#edit" class="btn btn-info get-edit">
     <i class="glyphicon glyphicon-edit"></i>
     <t class="hidden-xs">Editar</t>
 </a>

@@ -8,7 +8,7 @@
       <div class="col-md-12">
         <div class="card">
           <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
-          <div class="card-header">Clientes
+          <div class="card-header">Productos
             <a class="btn btn-success" href="{{ route('clients.create') }}">
               Agregar
             </a>
@@ -19,14 +19,14 @@
                 {{session()->get('message') }}
               </div>
             @endif
-            <table class="table table-striped table-bordered dt-responsive nowrap" id="clients-table" style="width:100%">
+            <table class="table table-striped table-bordered dt-responsive nowrap" id="products-table" style="width:100%">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Razon Social</th>
-                  <th scope="col">Nombre comercial</th>
-                  <th scope="col">Correo</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Cantidad</th>
+                  <th scope="col">Precio Unitario</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>               
@@ -41,7 +41,7 @@
 <script>
   $(document).ready(function() {
       //Datatable
-      var table = $('#clients-table').DataTable({
+      var table = $('#products-table').DataTable({
         language: {
             "lengthMenu": "Mostrar _MENU_ registros por pagina",
             "zeroRecords": "Ningun registro coincide - lo sentimos",
@@ -61,21 +61,21 @@
          responsive: true,
           processing: true,
           serverSide: true,
-          ajax:'/clients',
+          ajax:'/products',
           type:'GET',
           columns: [
               { data: 'id', name: 'id' },
               { data: 'name', name: 'name' },
-              { data: 'rs', name: 'rs' },
-              { data: 'commercial_name', name: 'commercial_name' },
-              { data: 'email', name: 'email' },
+              { data: 'description', name: 'description' },
+              { data: 'amount', name: 'amount' },
+              { data: 'price_perunit', name: 'price_perunit' },
               { data: 'actions', name: 'actions' }
           ]
       });
 
 
       //Open show modal
-      $('body').delegate('.get-client','click',function(){
+     /* $('body').delegate('.get-client','click',function(){
             client_id = $(this).attr('client_id');
             $.ajax({
                 url : '{{ URL::to("/clients") }}' + '/' + client_id ,
@@ -85,11 +85,11 @@
             }).done(function(data){
                 document.getElementById("name").value = data.name;
                 document.getElementById("rs").value = data.rs;
-                document.getElementById("commercial_name").value = data.commercial_name;
+                document.getElementById("amount").value = data.amount;
                 document.getElementById("rfc").value = data.rfc;
                 document.getElementById("address").value = data.address;
                 document.getElementById("birthdate").value = data.birthdate;
-                document.getElementById("email").value = data.email;
+                document.getElementById("price_perunit").value = data.price_perunit;
                 document.getElementById("curp").value = data.curp;
             });
         });
@@ -106,11 +106,11 @@
                 document.getElementById("id").value = data.id;
                 document.getElementById("name_edit").value = data.name;
                 document.getElementById("rs_edit").value = data.rs;
-                document.getElementById("commercial_name_edit").value = data.commercial_name;
+                document.getElementById("commercial_name_edit").value = data.amount;
                 document.getElementById("rfc_edit").value = data.rfc;
                 document.getElementById("address_edit").value = data.address;
                 document.getElementById("birthdate_edit").value = data.birthdate;
-                document.getElementById("email_edit").value = data.email;
+                document.getElementById("email_edit").value = data.price_perunit;
                 document.getElementById("curp_edit").value = data.curp;
             });
         });
@@ -144,11 +144,10 @@
           }
         });
       });
-
+*/
   });
   </script>
 @endsection
-@include('clients.modals')
 
 
 
