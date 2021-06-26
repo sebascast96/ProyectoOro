@@ -11,41 +11,41 @@
                         <div class="form-row mb-3">
                             <div class="col-6">
                                 <label for="name" class="form-label">Nombre</label>
-                                <input type="text" class="form-control form-control-sm" name="name" id="name">
+                                <input type="text" class="form-control form-control-sm" name="name" id="name" disabled>
                             </div>
                             <div class="col-6 ">
                                 <label for="rs" class="form-label">Razón Social</label>
-                                <input type="text" class="form-control form-control-sm" name="rs" id="rs">
+                                <input type="text" class="form-control form-control-sm" name="rs" id="rs" disabled>
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col-6">
                                 <label for="name" class="form-label">Nombre Comercial</label>
-                                <input type="text" class="form-control form-control-sm" name="commercial_name" id="commercial_name">
+                                <input type="text" class="form-control form-control-sm" name="commercial_name" id="commercial_name" disabled>
                             </div>
                             <div class="col-6">
                                 <label for="name" class="form-label">RFC</label>
-                                <input type="text" class="form-control form-control-sm" name="rfc" id="rfc">
+                                <input type="text" class="form-control form-control-sm" name="rfc" id="rfc" disabled>
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col-6">
                                 <label for="name" class="form-label">CURP</label>
-                                <input type="text" class="form-control form-control-sm" name="curp" id="curp">
+                                <input type="text" class="form-control form-control-sm" name="curp" id="curp" disabled>
                             </div>
                             <div class="col-6">
                                 <label for="name" class="form-label">Dirección</label>
-                                <input type="text" class="form-control form-control-sm" name="address" id="address">
+                                <input type="text" class="form-control form-control-sm" name="address" id="address" disabled>
                             </div>
                         </div>
                         <div class="form-row mb-3">
                             <div class="col-6">
                                 <label for="name" class="form-label">Cumpleaños</label>
-                                <input type="date" class="form-control form-control-sm" name="birthdate" id="birthdate">
+                                <input type="date" class="form-control form-control-sm" name="birthdate" id="birthdate" disabled>
                             </div>
                             <div class="col-6">
                                 <label for="name" class="form-label">Email</label>
-                                <input type="email" class="form-control form-control-sm" name="email" id="email">
+                                <input type="email" class="form-control form-control-sm" name="email" id="email" disabled>
                             </div>
                         </div>
                         
@@ -67,7 +67,7 @@
                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('clients.updat')}}" method="put">
+                    <form action="{{route('clients.update')}}" method="put">
                                 @csrf
                                 <input type="text" class="form-control form-control-sm" style="display:none" name="id" id="id">
                             
@@ -114,10 +114,11 @@
                         
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-success" type="submit" >Guardar</button>
+                    <button type="submit" class="btn btn-success"  >Guardar</button>
                     <a href="#" data-dismiss="modal" class="btn btn-default">Cerrar</a>
                 </div>
-                </form>
+                
             </div>
+            </form>
         </div>
     </div>

@@ -38,7 +38,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -49,7 +49,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Product::create($request->except('_token'));
+        return view('products.index')->with(['message' => 'Guardado']);
     }
 
     /**
@@ -60,7 +61,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return response()->json($product, 200);
     }
 
     /**
@@ -78,12 +80,13 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        dd($request);
+        Product::where('id', $request->id)->update($request);
+        return view('products.index')->with(['message' => 'Guardado']);
     }
 
     /**
@@ -94,6 +97,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
     }
 }

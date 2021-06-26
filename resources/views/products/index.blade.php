@@ -9,7 +9,7 @@
         <div class="card">
           <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
           <div class="card-header">Productos
-            <a class="btn btn-success" href="{{ route('clients.create') }}">
+            <a class="btn btn-success" href="{{ route('products.create') }}">
               Agregar
             </a>
           </div>
@@ -75,52 +75,44 @@
 
 
       //Open show modal
-     /* $('body').delegate('.get-client','click',function(){
-            client_id = $(this).attr('client_id');
+      $('body').delegate('.get-product','click',function(){
+            product_id = $(this).attr('product_id');
             $.ajax({
-                url : '{{ URL::to("/clients") }}' + '/' + client_id ,
+                url : '{{ URL::to("/products") }}' + '/' + product_id ,
                 type : 'GET',
                 dataType: 'json',
-                data : {id: client_id}
+                data : {id: product_id}
             }).done(function(data){
                 document.getElementById("name").value = data.name;
-                document.getElementById("rs").value = data.rs;
+                document.getElementById("description").value = data.description;
                 document.getElementById("amount").value = data.amount;
-                document.getElementById("rfc").value = data.rfc;
-                document.getElementById("address").value = data.address;
-                document.getElementById("birthdate").value = data.birthdate;
                 document.getElementById("price_perunit").value = data.price_perunit;
-                document.getElementById("curp").value = data.curp;
             });
         });
 
 
         $('body').delegate('.get-edit','click',function(){
-            client_id = $(this).attr('client_id');
+            product_id = $(this).attr('product_id');
             $.ajax({
-                url : '{{ URL::to("/clients") }}' + '/' + client_id ,
+                url : '{{ URL::to("/products") }}' + '/' + product_id ,
                 type : 'GET',
                 dataType: 'json',
-                data : {id: client_id}
+                data : {id: product_id}
             }).done(function(data){
                 document.getElementById("id").value = data.id;
                 document.getElementById("name_edit").value = data.name;
-                document.getElementById("rs_edit").value = data.rs;
-                document.getElementById("commercial_name_edit").value = data.amount;
-                document.getElementById("rfc_edit").value = data.rfc;
-                document.getElementById("address_edit").value = data.address;
-                document.getElementById("birthdate_edit").value = data.birthdate;
-                document.getElementById("email_edit").value = data.price_perunit;
-                document.getElementById("curp_edit").value = data.curp;
+                document.getElementById("description_edit").value = data.description;
+                document.getElementById("amount_edit").value = data.amount;
+                document.getElementById("price_perunit_edit").value = data.price_perunit;
             });
         });
 
 
-        $('body').delegate('.del-client','click',function(){
-          client_id = $(this).attr('client_id');
+        $('body').delegate('.del-product','click',function(){
+          product_id = $(this).attr('product_id');
           var token = $("#token").val();
         swal({
-          title: "¿Quieres eliminar este cliente?",
+          title: "¿Quieres eliminar este producto?",
           text: "Una vez eliminado ya no se puede recuperar la información",
           icon: "warning",
           buttons: true,
@@ -129,25 +121,24 @@
         .then((willDelete) => {
           if (willDelete) {
             $.ajax({
-                        url: '/clients/'+ client_id,
+                        url: '/products/'+ product_id,
                         headers: {'X-CSRF-TOKEN': token},
                         type: 'DELETE',
                         dataType: 'json',
                     })
                       table.ajax.reload();
                     
-            swal("El cliente a sido eliminado", {
+            swal("El producto a sido eliminado", {
               icon: "success",
             });
           } else {
-            swal("Cliente no eliminado");
+            swal("Producto no eliminado");
           }
         });
       });
-*/
+
   });
   </script>
 @endsection
-
-
+@include('products.modals')
 

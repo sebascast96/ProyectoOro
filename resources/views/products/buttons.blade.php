@@ -7,7 +7,7 @@
     <i class="glyphicon glyphicon-edit"></i>
     <t class="hidden-xs">Editar</t>
 </a>
-<a class="btn btn-danger del-client" product_id="{{ $product->id }}">
+<a class="btn btn-danger del-product" product_id="{{ $product->id }}">
     <i class="glyphicon glyphicon-remove"></i>
     <t class="hidden-xs">Borrar</t>
 </a>

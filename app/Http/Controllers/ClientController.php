@@ -86,7 +86,6 @@ class ClientController extends Controller
      */
     public function updat(Request $request)
     {
-        dd($request);
         Client::where('id', $request->id)->update($request);
         return view('clients.index')->with(['message' => 'Guardado']);
     }

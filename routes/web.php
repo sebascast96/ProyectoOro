@@ -25,11 +25,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 /*Rutas de Clientes*/
-Route::resource('clients', ClientController::class)->middleware(['auth']);
+Route::resource('clients', ClientController::class)->except('update')->middleware(['auth']);
 
 Route::PUT('clients/update',[ClientController::class,'updat'])->name('clients.updat');
 
-Route::get('filter-clients',[ClientController::class,'createDatatable']);
 
 require __DIR__.'/auth.php';
 
@@ -38,4 +37,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 /*Rutas de Productos*/
-Route::resource('products', ProductController::class)->middleware(['auth']);
+Route::resource('products', ProductController::class)->except('update')->middleware(['auth']);
+
+Route::PUT('products/update',[ProductController::class,'update'])->name('products.update');
