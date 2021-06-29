@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Client;
+use App\Models\Seller;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ClientController extends Controller
+class SellerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,15 +18,15 @@ class ClientController extends Controller
         if ($request->ajax()) {
             return $this->createDatatable();
         }
-        return view('clients.index');
+        return view('sellers.index');
     }
 
     public function createDatatable()
     {
-        $clients = Client::query();
-        return Datatables::of($clients)
-        ->addColumn('actions', function ($client) {
-            return view('clients.buttons',compact('client'));
+        $sellers = Seller::query();
+        return Datatables::of($sellers)
+        ->addColumn('actions', function ($seller) {
+            return view('sellers.buttons',compact('seller'));
          })
          ->make(true);
     }
@@ -38,7 +38,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        return view('sellers.create');
     }
 
     /**
@@ -49,9 +49,8 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-
-        Client::create($request->except('_token'));
-        return redirect()->route('products.index');
+        Seller::create($request->except('_token'));
+        return redirect()->route('sellers.index');
     }
 
     /**
@@ -62,8 +61,8 @@ class ClientController extends Controller
      */
     public function show($id)
     {
-        $client = Client::find($id);
-        return response()->json($client, 200);
+        $seller = Seller::find($id);
+        return response()->json($seller, 200);
     }
 
     /**
@@ -86,10 +85,9 @@ class ClientController extends Controller
      */
     public function update(Request $request)
     {
-        Client::where('id', $request->id)->update($request->except('_token'));
-        return view('clients.index')->with(['message' => 'Guardado']);
+        Seller::where('id', $request->id)->update($request->except('_token'));
+        return view('sellers.index')->with(['message' => 'Guardado']);
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -98,7 +96,7 @@ class ClientController extends Controller
      */
     public function destroy($id)
     {
-        $client = Client::find($id);
-        $client->delete();
+        $seller = Seller::find($id);
+        $seller->delete();
     }
 }

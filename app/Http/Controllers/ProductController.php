@@ -50,7 +50,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         Product::create($request->except('_token'));
-        return view('products.index')->with(['message' => 'Guardado']);
+        return redirect()->route('products.index');
     }
 
     /**
@@ -84,9 +84,8 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request);
-        Product::where('id', $request->id)->update($request);
-        return view('products.index')->with(['message' => 'Guardado']);
+        $product=Product::where('id', $request->id)->update($request->except('_token'));        
+        return redirect()->route('products.index');
     }
 
     /**

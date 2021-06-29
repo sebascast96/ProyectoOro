@@ -47,7 +47,7 @@
                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('products.update')}}" method="put">
+                    <form action="{{route('products.update')}}" method="post" id="update_prod">
                                 @csrf
                                 <input type="text" class="form-control form-control-sm" style="display:none" name="id" id="id">
                             
@@ -71,7 +71,7 @@
                                 <input type="text" class="form-control form-control-sm" name="price_perunit" id="price_perunit_edit">
                             </div>
                         </div>
-                        <button class="btn btn-success" type="submit" >Guardar</button>
+                        <button class="btn btn-success" type="submit" form="update_prod">Guardar</button>
                         <a href="#" data-dismiss="modal" class="btn btn-default">Cerrar</a>
                 </div>
                 </form>

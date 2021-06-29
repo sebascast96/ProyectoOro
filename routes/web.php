@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SellerController;
 
 
 /*
@@ -27,7 +28,7 @@ Route::get('/dashboard', function () {
 /*Rutas de Clientes*/
 Route::resource('clients', ClientController::class)->except('update')->middleware(['auth']);
 
-Route::PUT('clients/update',[ClientController::class,'updat'])->name('clients.updat');
+Route::POST('clients/update',[ClientController::class,'update'])->name('clients.update');
 
 
 require __DIR__.'/auth.php';
@@ -39,4 +40,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*Rutas de Productos*/
 Route::resource('products', ProductController::class)->except('update')->middleware(['auth']);
 
-Route::PUT('products/update',[ProductController::class,'update'])->name('products.update');
+Route::POST('products/update',[ProductController::class,'update'])->name('products.update');
+
+/*Rutas de Vendedor*/
+Route::resource('sellers', SellerController::class)->except('update')->middleware(['auth']);
+
+Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.update');
