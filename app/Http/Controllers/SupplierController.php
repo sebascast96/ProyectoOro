@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
-class ProductController extends Controller
+class SupplierController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,16 +18,15 @@ class ProductController extends Controller
         if ($request->ajax()) {
             return $this->createDatatable();
         }
-        return view('products.index');
+        return view('suppliers.index');
     }
 
     public function createDatatable()
     {
-        $products = Product::all();
-        
-        return Datatables::of($products)
-        ->addColumn('actions', function ($product) {
-            return view('products.buttons',compact('product'));
+        $suppliers = Supplier::query();
+        return Datatables::of($suppliers)
+        ->addColumn('actions', function ($supplier) {
+            return view('suppliers.buttons',compact('supplier'));
          })
          ->make(true);
     }
@@ -39,7 +38,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('suppliers.create');
     }
 
     /**
@@ -50,8 +49,8 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        Product::create($request->except('_token'));
-        return redirect()->route('products.index');
+        Supplier::create($request->except('_token'));
+        return redirect()->route('suppliers.index');
     }
 
     /**
@@ -62,21 +61,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        return response()->json($product, 200);
-    }
-
-    /**
-     * Display the specified resource's suppliers.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function showProv($id)
-    {
-        $sup = Product::find($id)->supplier;
-        return Datatables::of($sup)
-         ->make(true);
+        $supplier = Supplier::find($id);
+        return response()->json($supplier, 200);
     }
 
     /**
@@ -94,14 +80,14 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
-        $product=Product::where('id', $request->id)->update($request->except('_token'));        
-        return redirect()->route('products.index');
+        Supplier::where('id', $request->id)->update($request->except('_token'));
+        return view('suppliers.index')->with(['message' => 'Guardado']);
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -110,7 +96,7 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        $product = Product::find($id);
-        $product->delete();
+        $supplier = Supplier::find($id);
+        $supplier->delete();
     }
 }

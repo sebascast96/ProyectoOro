@@ -8,8 +8,8 @@
       <div class="col-md-12">
         <div class="card">
           <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
-          <div class="card-header">Vendedores
-            <a class="btn btn-success" href="{{ route('sellers.create') }}">
+          <div class="card-header">Proveedores
+            <a class="btn btn-success" href="{{ route('suppliers.create') }}">
               Agregar
             </a>
           </div>
@@ -19,16 +19,14 @@
                 {{session()->get('message') }}
               </div>
             @endif
-            <table class="table table-striped table-bordered dt-responsive nowrap" id="sellers-table" style="width:100%">
+            <table class="table table-striped table-bordered dt-responsive nowrap" id="suppliers-table" style="width:100%">
               <thead>
                 <tr>
                   <th scope="col">Id</th>
                   <th scope="col">Nombre</th>
-                  <th scope="col">Correo</th>
-                  <th scope="col">RFC</th>
-                  <th scope="col">CURP</th>
                   <th scope="col">Dirección</th>
-                  <th scope="col">Cumpleaños</th>
+                  <th scope="col">Teléfono</th>
+                  <th scope="col">Información de Contacto</th>
                   <th scope="col">Acciones</th>
                 </tr>
               </thead>               
@@ -43,7 +41,7 @@
 <script>
   $(document).ready(function() {
       //Datatable
-      var table = $('#sellers-table').DataTable({
+      var table = $('#suppliers-table').DataTable({
         language: {
             "lengthMenu": "Mostrar _MENU_ registros por pagina",
             "zeroRecords": "Ningun registro coincide - lo sentimos",
@@ -63,36 +61,32 @@
          responsive: true,
           processing: true,
           serverSide: true,
-          ajax:'/sellers',
+          ajax:'/suppliers',
           type:'GET',
           columns: [
               { data: 'id', name: 'id' },
               { data: 'name', name: 'name' },
-              { data: 'email', name: 'email' },
-              { data: 'rfc', name: 'rfc' },
-              { data: 'curp', name: 'curp' },
               { data: 'address', name: 'address' },
-              { data: 'birthdate', name: 'birthdate' },
+              { data: 'phone', name: 'phone' },
+              { data: 'contact_info', name: 'contact_info' },
               { data: 'actions', name: 'actions' },
           ]
       });
 
 
       //Open show modal
-      $('body').delegate('.get-seller','click',function(){
-            seller_id = $(this).attr('seller_id');
+      $('body').delegate('.get-supplier','click',function(){
+            supplier_id = $(this).attr('supplier_id');
             $.ajax({
-                url : '{{ URL::to("/sellers") }}' + '/' + seller_id ,
+                url : '{{ URL::to("/suppliers") }}' + '/' + supplier_id ,
                 type : 'GET',
                 dataType: 'json',
-                data : {id: seller_id}
+                data : {id: supplier_id}
             }).done(function(data){
                 document.getElementById("name").value = data.name;
-                document.getElementById("email").value = data.email;
-                document.getElementById("rfc").value = data.rfc;
-                document.getElementById("curp").value = data.curp;
                 document.getElementById("address").value = data.address;
-                document.getElementById("birthdate").value = data.birthdate;
+                document.getElementById("phone").value = data.phone;
+                document.getElementById("contact_info").value = data.contact_info;
             });
         });
 
@@ -107,20 +101,18 @@
             }).done(function(data){
                 document.getElementById("id").value = data.id;
                 document.getElementById("name_edit").value = data.name;
-                document.getElementById("email_edit").value = data.email;
-                document.getElementById("rfc_edit").value = data.rfc;
-                document.getElementById("curp_edit").value = data.curp;
                 document.getElementById("address_edit").value = data.address;
-                document.getElementById("birthdate_edit").value = data.birthdate;
+                document.getElementById("phone_edit").value = data.phone;
+                document.getElementById("contact_info_edit").value = data.contact_info;
             });
         });
 
 
-        $('body').delegate('.del-seller','click',function(){
-          seller_id = $(this).attr('seller_id');
+        $('body').delegate('.del-supplier','click',function(){
+          supplier_id = $(this).attr('supplier_id');
           var token = $("#token").val();
         swal({
-          title: "¿Quieres eliminar este vendedor?",
+          title: "¿Quieres eliminar este proveedor?",
           text: "Una vez eliminado ya no se puede recuperar la información",
           icon: "warning",
           buttons: true,
@@ -129,18 +121,18 @@
         .then((willDelete) => {
           if (willDelete) {
             $.ajax({
-                        url: '/sellers/'+ seller_id,
+                        url: '/supplier/'+ supplier_id,
                         headers: {'X-CSRF-TOKEN': token},
                         type: 'DELETE',
                         dataType: 'json',
                     })
                       table.ajax.reload();
                     
-            swal("El vendedor a sido eliminado", {
+            swal("El proveedor a sido eliminado", {
               icon: "success",
             });
           } else {
-            swal("Vendedor no eliminado");
+            swal("Proveedor no eliminado");
           }
         });
       });
@@ -148,7 +140,7 @@
   });
   </script>
 @endsection
-@include('sellers.modals')
+@include('suppliers.modals')
 
 
 

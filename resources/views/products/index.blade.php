@@ -107,9 +107,45 @@
             });
         });
 
+        $('body').delegate('.get-prov','click',function(){
+            product_id = $(this).attr('product_id');
+              var table = $('#prov-table').DataTable();
+              table.destroy();
+              table = $('#prov-table').DataTable({
+                language: {
+                  "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                  "zeroRecords": "Ningun registro coincide - lo sentimos",
+                  "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                  "infoEmpty": "No hay registros disponibles",
+                  "infoFiltered": "(filtrado de _MAX_ registros totales)",
+                  "search":"Buscar",
+                  "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                  },
+                  "processing":"Procesando.."
+                },
+                info: true,
+                responsive: true,
+                processing: true,
+                serverSide: true,
+                ajax:'/products-prov' + '/' + product_id,
+                type:'GET',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'address', name: 'address' },
+                    { data: 'phone', name: 'phone' },
+                    { data: 'contact_info', name: 'contact_info' },
+                ]
+              });
+          });
+
         function form_submit() {
-    document.getElementById("update_prod").submit();
-   } 
+          document.getElementById("update_prod").submit();
+        } 
 
         $('body').delegate('.del-product','click',function(){
           product_id = $(this).attr('product_id');

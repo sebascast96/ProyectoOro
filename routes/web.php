@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellerController;
+use App\Http\Controllers\SupplierController;
 
 
 /*
@@ -41,8 +42,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('products', ProductController::class)->except('update')->middleware(['auth']);
 
 Route::POST('products/update',[ProductController::class,'update'])->name('products.update');
+Route::GET('products-prov/{id}',[ProductController::class,'showProv'])->name('products.prov');
 
 /*Rutas de Vendedor*/
 Route::resource('sellers', SellerController::class)->except('update')->middleware(['auth']);
 
 Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.update');
+
+/*Rutas de Proveedores*/
+Route::resource('suppliers', SupplierController::class)->except('update')->middleware(['auth']);
+
+Route::POST('suppliers/update',[SupplierController::class,'update'])->name('suppliers.update');

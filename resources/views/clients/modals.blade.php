@@ -67,7 +67,7 @@
                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('clients.update')}}" method="post">
+                    <form action="{{route('clients.update')}}" method="post ">
                                 @csrf
                                 <input type="text" class="form-control form-control-sm" style="display:none" name="id" id="id">
                             

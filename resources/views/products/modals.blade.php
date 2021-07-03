@@ -79,3 +79,30 @@
             
         </div>
     </div>
+
+    <div class="modal fade" id="prov">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Proveedores</h4>
+                    <button type="button" class="close" data-dismiss="modal"><span
+                                aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-striped table-bordered dt-responsive nowrap" id="prov-table" style="width:100%">
+                        <thead>
+                            <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Dirección</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Contacto</th>
+                            </tr>
+                        </thead>               
+                    </table>
+                </div>
+                   
+            </div>
+            
+        </div>
+    </div>
