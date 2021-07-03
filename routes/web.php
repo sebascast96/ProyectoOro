@@ -41,15 +41,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 /*Rutas de Productos*/
 Route::resource('products', ProductController::class)->except('update')->middleware(['auth']);
 
-Route::POST('products/update',[ProductController::class,'update'])->name('products.update');
-Route::GET('products-prov/{id}',[ProductController::class,'showProv'])->name('products.prov');
+Route::POST('products/update',[ProductController::class,'update'])->name('products.update')->middleware(['auth']);
+Route::GET('products-prov/{id}',[ProductController::class,'showProv'])->name('products.prov')->middleware(['auth']);
 
 /*Rutas de Vendedor*/
 Route::resource('sellers', SellerController::class)->except('update')->middleware(['auth']);
 
-Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.update');
+Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.update')->middleware(['auth']);
 
 /*Rutas de Proveedores*/
 Route::resource('suppliers', SupplierController::class)->except('update')->middleware(['auth']);
 
-Route::POST('suppliers/update',[SupplierController::class,'update'])->name('suppliers.update');
+Route::POST('suppliers/update',[SupplierController::class,'update'])->name('suppliers.update')->middleware(['auth']);
