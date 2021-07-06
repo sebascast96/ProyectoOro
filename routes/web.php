@@ -53,3 +53,6 @@ Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.
 Route::resource('suppliers', SupplierController::class)->except('update')->middleware(['auth']);
 
 Route::POST('suppliers/update',[SupplierController::class,'update'])->name('suppliers.update')->middleware(['auth']);
+Route::GET('fill',[SupplierController::class,'fillSelect'])->middleware(['auth']);
+Route::POST('suppliers/link',[SupplierController::class,'link'])->name('suppliers.link')->middleware(['auth']);
+Route::DELETE('products/supplier/{supplier}',[SupplierController::class,'remove'])->name('suppliers.remove')->middleware(['auth']);

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content') 
+@section('content')
 
 <div class="py-12">
   <div class="container">
@@ -29,7 +29,7 @@
                   <th scope="col">Precio Unitario</th>
                   <th scope="col">Acciones</th>
                 </tr>
-              </thead>               
+              </thead>
             </table>
           </div>
         </div>
@@ -40,6 +40,22 @@
 
 <script>
   $(document).ready(function() {
+    function format(item) { return item.name; };
+    $select2 = $('.select2').select2({
+      placeholder: "Elige el proveedor que deseas ligar",
+      ajax:{
+        url:'/fill',
+        dataType: 'json',
+        type:'GET',
+        processResults: function (data) {
+          return {
+            results: $.map(data, function(obj) {
+              return { id: obj.id, text: obj.name };
+            })
+          };
+        }
+      },
+    });
       //Datatable
       var table = $('#products-table').DataTable({
         language: {
@@ -91,6 +107,9 @@
         });
 
 
+
+
+
         $('body').delegate('.get-edit','click',function(){
             product_id = $(this).attr('product_id');
             $.ajax({
@@ -109,9 +128,10 @@
 
         $('body').delegate('.get-prov','click',function(){
             product_id = $(this).attr('product_id');
-              var table = $('#prov-table').DataTable();
-              table.destroy();
-              table = $('#prov-table').DataTable({
+            document.getElementById("idl").value = $(this).attr('product_id');
+              var table2 = $('#prov-table').DataTable();
+              table2.destroy();
+              table2 = $('#prov-table').DataTable({
                 language: {
                   "lengthMenu": "Mostrar _MENU_ registros por pagina",
                   "zeroRecords": "Ningun registro coincide - lo sentimos",
@@ -139,13 +159,14 @@
                     { data: 'address', name: 'address' },
                     { data: 'phone', name: 'phone' },
                     { data: 'contact_info', name: 'contact_info' },
+                    { data: 'actions', name: 'actions' },
                 ]
               });
           });
 
         function form_submit() {
           document.getElementById("update_prod").submit();
-        } 
+        }
 
         $('body').delegate('.del-product','click',function(){
           product_id = $(this).attr('product_id');
@@ -166,7 +187,7 @@
                         dataType: 'json',
                     })
                       table.ajax.reload();
-                    
+
             swal("El producto a sido eliminado", {
               icon: "success",
             });
@@ -176,6 +197,36 @@
         });
       });
 
+
+      $('body').delegate('.del-product-sup','click',function(){
+          supplier_id = $(this).attr('supplier_id');
+          var token = $("#token").val();
+        swal({
+          title: "¿Remover proveedor del producto?",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            $.ajax({
+                        url: '/products/supplier/'+ supplier_id,
+                        headers: {'X-CSRF-TOKEN': token},
+                        data: {product_id: product_id},
+                        type: 'DELETE',
+                        dataType: 'json',
+                    })
+                    var table2 = $('#prov-table').DataTable();
+                      table2.ajax.reload();
+
+            swal("El proveedor a sido eliminado de este producto", {
+              icon: "success",
+            });
+          } else {
+            swal("Producto no eliminado");
+          }
+        });
+      });
   });
   </script>
 @endsection

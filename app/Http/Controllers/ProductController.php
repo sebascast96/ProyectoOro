@@ -24,7 +24,7 @@ class ProductController extends Controller
     public function createDatatable()
     {
         $products = Product::all();
-        
+
         return Datatables::of($products)
         ->addColumn('actions', function ($product) {
             return view('products.buttons',compact('product'));
@@ -76,6 +76,9 @@ class ProductController extends Controller
     {
         $sup = Product::find($id)->supplier;
         return Datatables::of($sup)
+        ->addColumn('actions', function ($prov) {
+            return view('products.buttons_supplier',compact('prov'));
+         })
          ->make(true);
     }
 
@@ -98,7 +101,7 @@ class ProductController extends Controller
      */
     public function update(Request $request)
     {
-        $product=Product::where('id', $request->id)->update($request->except('_token'));        
+        $product=Product::where('id', $request->id)->update($request->except('_token'));
         return redirect()->route('products.index');
     }
 

@@ -18,6 +18,10 @@
     <script src="//cdn.datatables.net/1.10.25/js/dataTables.bootstrap4.min.js" defer></script>
     <script src="//cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js" defer></script>
     <script src="//cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js" defer></script>
+
+    <!-- Select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

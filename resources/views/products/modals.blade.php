@@ -50,7 +50,7 @@
                     <form action="{{route('products.update')}}" method="post" id="update_prod">
                                 @csrf
                                 <input type="text" class="form-control form-control-sm" style="display:none" name="id" id="id">
-                            
+
                         <div class="form-row mb-3">
                             <div class="col-6">
                                 <label for="name" class="form-label">Nombre</label>
@@ -76,7 +76,7 @@
                 </div>
                 </form>
             </div>
-            
+
         </div>
     </div>
 
@@ -97,12 +97,24 @@
                             <th scope="col">Dirección</th>
                             <th scope="col">Telefono</th>
                             <th scope="col">Contacto</th>
+                            <th scope="col">Acciones</th>
                             </tr>
-                        </thead>               
+                        </thead>
                     </table>
+                    <form action="{{route('suppliers.link')}}" method="post"">
+                    @csrf
+                                <input type="text" class="form-control form-control-sm" style="display:none" name="idl" id="idl">
+                        <h6>Agregar proveedor al producto</h6>
+                        <select class="select2" name="supplier">
+                        </select>
+                        <button type="submit" class="btn btn-success">
+                            Agregar
+                        </button>
+                    </form>
+
                 </div>
-                   
+
             </div>
-            
+
         </div>
     </div>

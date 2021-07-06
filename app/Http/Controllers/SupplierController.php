@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+use Illuminate\Http\RedirectResponse;
 
 class SupplierController extends Controller
 {
@@ -19,6 +20,19 @@ class SupplierController extends Controller
             return $this->createDatatable();
         }
         return view('suppliers.index');
+    }
+
+    public function fillSelect(Request $request)
+    {
+        $suppliers = Supplier::all();
+        return $suppliers->toJson();
+    }
+
+    public function link(Request $request)
+    {
+        $supplier = Supplier::find($request->supplier);
+        $supplier->products()->attach($request->idl);
+        return back();
     }
 
     public function createDatatable()
@@ -98,5 +112,18 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::find($id);
         $supplier->delete();
+    }
+
+    /**
+     * Remove the link between product and supplier.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function remove(int $id, Request $request)
+    {
+        $sup = Supplier::find($id);
+        $sup->products()->detach($request->product_id);
+
     }
 }
