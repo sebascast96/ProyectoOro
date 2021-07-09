@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SupplierController;
+use App\Http\Controllers\EmployeeController;
 
 
 /*
@@ -48,6 +49,11 @@ Route::GET('products-prov/{id}',[ProductController::class,'showProv'])->name('pr
 Route::resource('sellers', SellerController::class)->except('update')->middleware(['auth']);
 
 Route::POST('sellers/update',[SellerController::class,'update'])->name('sellers.update')->middleware(['auth']);
+
+/*Rutas de Empleado*/
+Route::resource('employees', EmployeeController::class)->except('update')->middleware(['auth']);
+
+Route::POST('employees/update',[EmployeeController::class,'update'])->name('employees.update')->middleware(['auth']);
 
 /*Rutas de Proveedores*/
 Route::resource('suppliers', SupplierController::class)->except('update')->middleware(['auth']);
