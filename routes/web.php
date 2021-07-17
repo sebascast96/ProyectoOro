@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SaleController;
 
 
 /*
@@ -62,3 +63,8 @@ Route::POST('suppliers/update',[SupplierController::class,'update'])->name('supp
 Route::GET('fill',[SupplierController::class,'fillSelect'])->middleware(['auth']);
 Route::POST('suppliers/link',[SupplierController::class,'link'])->name('suppliers.link')->middleware(['auth']);
 Route::DELETE('products/supplier/{supplier}',[SupplierController::class,'remove'])->name('suppliers.remove')->middleware(['auth']);
+
+/*Rutas de Ventas*/
+Route::resource('sales', SaleController::class)->except('update')->middleware(['auth']);
+
+Route::POST('sales/update',[SaleController::class,'update'])->name('sales.update')->middleware(['auth']);

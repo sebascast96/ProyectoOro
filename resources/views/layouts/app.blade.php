@@ -91,6 +91,11 @@
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link" href="{{route('sales.index')}}" role="button" v-pre>
+                                    Ventas
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('suppliers.index')}}" role="button" v-pre>
                                     Proveedores
                                 </a>
