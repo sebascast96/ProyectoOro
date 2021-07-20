@@ -21,6 +21,7 @@ class CreateSalesTable extends Migration
             $table->integer('payment_method_id')->nullable();
             $table->integer('seller_id')->nullable();
             $table->integer('employee_id')->nullable();
+            $table->integer('client_id')->nullable();
         });
     }
 

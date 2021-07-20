@@ -14,6 +14,7 @@
                         {{session()->get('message') }}
                     </div>
                     @endif
+
                     <table class="table table-striped table-bordered dt-responsive nowrap" id="sales-table" style="width:100%">
                     <thead>
                         <tr>

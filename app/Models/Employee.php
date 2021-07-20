@@ -16,4 +16,9 @@ class Employee extends Model
         'birthdate',
     ];
     use HasFactory;
+
+    public function sale()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }

@@ -66,5 +66,5 @@ Route::DELETE('products/supplier/{supplier}',[SupplierController::class,'remove'
 
 /*Rutas de Ventas*/
 Route::resource('sales', SaleController::class)->except('update')->middleware(['auth']);
-
+Route::GET('sales/prod/{sale}',[SaleController::class,'getProducts'])->middleware(['auth']);
 Route::POST('sales/update',[SaleController::class,'update'])->name('sales.update')->middleware(['auth']);

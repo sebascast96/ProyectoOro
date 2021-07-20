@@ -61,8 +61,21 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        $sale = Sale::find($id);
-        return response()->json($sale, 200);
+        $sale = Sale::find($id)->with('employee','seller','products','client')->first();
+        return view('sales.show',compact('sale'));
+    }
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function getProducts(Sale $sale)
+    {
+        $products = $sale->with('products')->first();
+        dd($products);
+        return Datatables::of($products)
+         ->make(true);
     }
 
     /**
