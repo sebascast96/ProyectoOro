@@ -28,7 +28,9 @@
                             <div class="card" class="col-md-4">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$product->name}}</h5>
+
                                     <p class="card-text">{{$product->description}}</p>
+                                    <p class="card-text">Precio unitario: {{$product->price_perunit}}</p>
                                     Cantidad:<button class="btn btn-danger">-</button><input type="text"><button class="btn btn-success">+</button>
                                  </div>
                             </div>
