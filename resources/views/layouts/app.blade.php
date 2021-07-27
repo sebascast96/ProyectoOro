@@ -71,6 +71,11 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link" href="{{route('dashboard')}}" role="button" v-pre>
+                                    Dashboard
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('clients.index')}}" role="button" v-pre>
                                     Clientes
                                 </a>
