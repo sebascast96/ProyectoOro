@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sale;
+use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 
@@ -111,5 +113,27 @@ class SaleController extends Controller
     {
         $sale = Sale::find($id);
         $sale->delete();
+    }
+     /**
+     * Open sales dashboard
+     *
+     * @param  
+     * @return \Illuminate\Http\Response
+     */
+    public function dashboard()
+    {
+        $products = Product::all();
+        return view('sales.dashboard', ['products' => $products]);
+    }
+     /**
+     * Open sales dashboard
+     *
+     * @param  
+     * @return \Illuminate\Http\Response
+     */
+    public function fillClientsSelect(Request $request)
+    {
+        $clients = Client::all();
+        return $clients->toJson();
     }
 }

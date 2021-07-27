@@ -101,9 +101,9 @@
                             </tr>
                         </thead>
                     </table>
-                    <form action="{{route('suppliers.link')}}" method="post"">
+                    <form action="{{route('suppliers.link')}}" method="post">
                     @csrf
-                                <input type="text" class="form-control form-control-sm" style="display:none" name="idl" id="idl">
+                        <input type="text" class="form-control form-control-sm" style="display:none" name="idl" id="idl">
                         <h6>Agregar proveedor al producto</h6>
                         <select class="select2" name="supplier">
                         </select>
