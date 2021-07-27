@@ -1,0 +1,27 @@
+
+.banner-area{
+    width: 100%;
+    height: 100;
+    background-image: url(../img/BG.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.justify-content-center1{
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-content: flex-end;
+    align-items: center;
+    margin-top: 15rem;
+}
+
+.card{
+    background-color: #9E9D93;
+}
+
+.btn-primary{
+    color: #EFEEE3;
+    background-color: #84837A;
+    border-color: #84837A;
+}
