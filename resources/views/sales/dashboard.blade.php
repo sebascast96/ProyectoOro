@@ -16,19 +16,21 @@
                             <label class="col-3 text-center">Vendedor:</label>
                             <h5 class="col-3">{{ Auth::user()->name }}</h5>
                         </div>
-                        
+
                         <div class="row">
-                             <label class="col-3 text-center">Cliente:</label>
-                            <select class="select2client col-6" name="clients">
-                        </select>
+                            <label class="col-3 text-center">Cliente:</label>
+                            <select class="select2client col-5" name="clients"></select>
+                            <a class="btn btn-success col-1">
+                                <span>
+                                    <i class="fas fa-user-plus"></i>
+                                </span></a>
                         </div>
-                       
+
 
                         @foreach ($products as $product)
                             <div class="card" class="col-md-4">
                                 <div class="card-body">
                                     <h5 class="card-title">{{$product->name}}</h5>
-
                                     <p class="card-text">{{$product->description}}</p>
                                     <p class="card-text">Precio unitario: {{$product->price_perunit}}</p>
                                     Cantidad:<button class="btn btn-danger">-</button><input type="text"><button class="btn btn-success">+</button>
@@ -36,9 +38,9 @@
                             </div>
                         @endforeach
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary">Finalizar venta</button>     
+                            <button class="btn btn-primary">Finalizar venta</button>
                         </div>
-                                           
+
                     </div>
                 </div>
             </div>
