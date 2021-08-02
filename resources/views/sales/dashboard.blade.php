@@ -33,7 +33,7 @@
                                     <h5 class="card-title">{{$product->name}}</h5>
                                     <p class="card-text">{{$product->description}}</p>
                                     <p class="card-text">Precio unitario: {{$product->price_perunit}}</p>
-                                    Cantidad:<button class="btn btn-danger">-</button><input type="text"><button class="btn btn-success">+</button>
+                                    Cantidad:<button onclick="adding({{$product->id}})" class="btn btn-danger">-</button><input id="{{$product->id}}" type="text"><button  class="btn btn-success">+</button>
                                  </div>
                             </div>
                         @endforeach
@@ -49,23 +49,29 @@
 </div>
 <script>
     $(document).ready(function() {
+        function adding($id) {
+            console.log(document.getElementById($id).innerHTML);
+        };
       function format(item) { return item.name; };
-      $select2client = $('.select2client').select2({
-        placeholder: "¿Que cliente esta comprando?",
-        ajax:{
-          url:'/fill-clients',
-          dataType: 'json',
-          type:'GET',
-          processResults: function (data) {
-            return {
-              results: $.map(data, function(obj) {
-                return { id: obj.id, text: obj.name };
-              })
-            };
-          }
-        },
-      });
 
-  });
+        $select2client = $('.select2client').select2({
+            placeholder: "¿Que cliente esta comprando?",
+            ajax:{
+                url:'/fill-clients',
+                dataType: 'json',
+                type:'GET',
+                processResults: function (data) {
+                    return {
+                        results: $.map(data, function(obj) {
+                            return { id: obj.id, text: obj.name };
+                        })
+                    };
+                }
+            },
+        });
+
+
+
+    });
 </script>
 @endsection
