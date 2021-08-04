@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Hash;
 
 class EmployeeController extends Controller
 {
@@ -49,7 +51,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        Employee::create($request->except('_token'));
+        $employee = Employee::create($request->except('_token'));
+        $pass = '123456';
+        $user = User::create([
+            'name'=>$employee->name,
+            'email'=>$employee->email,
+            'password'=>Hash::make($pass),
+            'employee_id'=>$employee->id
+        ]);
+        $user->assignRole('employee');
         return redirect()->route('employees.index');
     }
 
@@ -98,6 +108,8 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $employee = Employee::find($id);
+        $user = User::where('employee_id','=',$employee->id)->first();
+        $user->delete();
         $employee->delete();
     }
 }

@@ -1,17 +1,21 @@
 @extends('layouts.app')
 
-@section('content') 
+@section('content')
 
 <div class="py-12">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-12">
         <div class="card">
+
           <input type="hidden" name="token" value="{{ csrf_token() }}" id="token">
           <div class="card-header">Vendedores
-            <a class="btn btn-success" href="{{ route('sellers.create') }}">
+
+                <a class="btn btn-success" href="{{ route('sellers.create') }}">
               Agregar
             </a>
+
+
           </div>
           <div class="card-body">
             @if (session()->has('message'))
@@ -31,7 +35,7 @@
                   <th scope="col">Cumpleaños</th>
                   <th scope="col">Acciones</th>
                 </tr>
-              </thead>               
+              </thead>
             </table>
           </div>
         </div>
@@ -42,6 +46,7 @@
 
 <script>
   $(document).ready(function() {
+
       //Datatable
       var table = $('#sellers-table').DataTable({
         language: {
@@ -135,7 +140,7 @@
                         dataType: 'json',
                     })
                       table.ajax.reload();
-                    
+
             swal("El vendedor a sido eliminado", {
               icon: "success",
             });

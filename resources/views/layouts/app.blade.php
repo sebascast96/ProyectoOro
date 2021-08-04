@@ -76,36 +76,47 @@
                                     Dashboard
                                 </a>
                             </li>
+                            @can('see-clients')
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('clients.index')}}" role="button" v-pre>
                                     Clientes
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            @endcan
+                            @can('see-products')
+                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('products.index')}}" role="button" v-pre>
                                     Productos
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            @endcan
+                           @can('see-sellers')
+                               <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('sellers.index')}}" role="button" v-pre>
                                     Vendedores
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                           @endcan
+                            @can('see-employees')
+                                 <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('employees.index')}}" role="button" v-pre>
                                     Empleados
                                 </a>
                             </li>
+                            @endcan
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('sales.index')}}" role="button" v-pre>
                                     Ventas
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+                            @can('see-suppliers')
+                                     <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link" href="{{route('suppliers.index')}}" role="button" v-pre>
                                     Proveedores
                                 </a>
                             </li>
+                            @endcan
+
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

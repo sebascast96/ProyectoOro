@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Seller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
+use Illuminate\Support\Facades\Hash;
 
 class SellerController extends Controller
 {
@@ -49,8 +52,16 @@ class SellerController extends Controller
      */
     public function store(Request $request)
     {
-        Seller::create($request->except('_token'));
-        return redirect()->route('sellers.index');
+        $seller = Seller::create($request->except('_token'));
+        $pass = '123456';
+        $user = User::create([
+            'name'=>$seller->name,
+            'email'=>$seller->email,
+            'password'=>Hash::make($pass),
+            'seller_id'=>$seller->id
+        ]);
+        $user->assignRole('seller');
+        return redirect()->Route('sellers.index');
     }
 
     /**
@@ -97,6 +108,8 @@ class SellerController extends Controller
     public function destroy($id)
     {
         $seller = Seller::find($id);
+        $user = User::where('seller_id','=',$seller->id)->first();
+        $user->delete();
         $seller->delete();
     }
 }
