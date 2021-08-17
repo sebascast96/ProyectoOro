@@ -1,22 +1,13 @@
-<<<<<<< Updated upstream
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
-.banner-area{
-=======
 .banner-area {
->>>>>>> Stashed changes
     width: 100%;
     height: 100;
     background-image: url(../img/BG.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
-<<<<<<< Updated upstream
-.justify-content-center1{
-=======
-
 .justify-content-center1 {
->>>>>>> Stashed changes
     height: 100%;
     justify-content: center;
     display: flex;
@@ -24,43 +15,42 @@
     align-items: center;
     margin-top: 15rem;
 }
-.login-card{
-    background-color: #9E9D93 !important;
+.login-card {
+    background-color: #9e9d93 !important;
     border: none !important;
     border-radius: 1em 1em 1em 1em !important;
 }
-.btn-login{
-    color: #EFEEE3 !important;
-    background-color: #4C4B46 !important;
-    border-color: #4C4B46  !important;
+.btn-login {
+    color: #efeee3 !important;
+    background-color: #4c4b46 !important;
+    border-color: #4c4b46 !important;
 }
-.btn-login:hover{
-    background-color: #84837A !important;
-    border-color: #84837A !important;
+.btn-login:hover {
+    background-color: #84837a !important;
+    border-color: #84837a !important;
 }
-.welcome{
+.welcome {
     padding: 0.75rem 1.25rem !important;
-    color: #EFEEE3 !important;
-    background-color: #DCB774 !important;
-    border: none  !important;
+    color: #efeee3 !important;
+    background-color: #dcb774 !important;
+    border: none !important;
     border-radius: 1em 1em 0 0 !important;
     margin-bottom: 0 !important;
 }
-.login-screen{
-    color: #EFEEE3 !important;
-    background-color: #9E9D93 !important;
+.login-screen {
+    color: #efeee3 !important;
+    background-color: #9e9d93 !important;
     border: none !important;
     border-radius: 0 0 1em 1em;
 }
-.login-link{
-    color: #4C4B46 !important;
+.login-link {
+    color: #4c4b46 !important;
 }
 
-<<<<<<< Updated upstream
-.card-header{
+.card-header {
     border: none !important;
-    color: #D9D9D9 !important;
-    background-color: #EFEEE3 !important;
+    color: #d9d9d9 !important;
+    background-color: #efeee3 !important;
     padding: 0.75rem 1.25rem !important;
 }
 .bg-color {
@@ -91,29 +81,25 @@
 .nav-link {
 }
 .navbar {
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 .navbar-brand {
-    color: #EFEDE0 !important;
+    color: #efede0 !important;
 }
-.navbar-brand:hover{
-    color: #FFFFFF !important;
+.navbar-brand:hover {
+    color: #ffffff !important;
 }
-.nav-link{
-    color: #CFA95F !important;
+.nav-link {
+    color: #cfa95f !important;
 }
-.nav-link:hover{
-    color: #CFB88C !important;
+.nav-link:hover {
+    color: #cfb88c !important;
 }
 .navbar-collapse {
 }
 .navbar-expand-md {
 }
 .navbar-light {
-=======
-.card {
-    background-color: #9e9d93;
->>>>>>> Stashed changes
 }
 .navbar-nav {
 }
@@ -121,10 +107,10 @@
     border: none !important;
 }
 .navbar-toggler-icono {
-    color: #CFA95F !important;
+    color: #cfa95f !important;
 }
-.navbar-toggler-icono:hover{
-    color: #CFB88C !important;
+.navbar-toggler-icono:hover {
+    color: #cfb88c !important;
 }
 .py-4 {
 }
@@ -139,19 +125,19 @@
 .btn-success {
 }
 .card {
-    background-color: #9D9B90 !important;
+    background-color: #9d9b90 !important;
     border: none !important;
     border-radius: 1em 1em 1em 1em !important;
 }
 .card-body {
-    background-color: #9E9B90 !important;
+    background-color: #9e9b90 !important;
     border-radius: 1em 1em 1em 1em !important;
 }
 .card-header {
-    font-family: 'Roboto', sans-serif;
-    color: #4C4B46 !important;
-    background-color: #EFEDE0 !important;
-    border-color: #EFEDE0 !important;
+    font-family: "Roboto", sans-serif;
+    color: #4c4b46 !important;
+    background-color: #efede0 !important;
+    border-color: #efede0 !important;
     border-radius: 1em 1em 0 0 !important;
 }
 .col-md-12 {
@@ -169,8 +155,8 @@
 .row {
 }
 .table {
-    font-family: 'Roboto', sans-serif;
-    color: #4C4B46 !important;
+    font-family: "Roboto", sans-serif;
+    color: #4c4b46 !important;
     border: none !important;
 }
 .table-bordered {
@@ -178,29 +164,21 @@
 .table-striped {
     border-radius: 0.5em 0.5em 0.5em 0.5em !important;
 }
-.pagination-button{
-    background-color: #9E9B8F !important;
-    border-color: #9E9B8F !important;
-
-<<<<<<< Updated upstream
+.pagination-button {
+    background-color: #9e9b8f !important;
+    border-color: #9e9b8f !important;
 }
-.odd{
-    background-color: #FFFFFF !important;
+.odd {
+    background-color: #ffffff !important;
     border: none !important;
 }
-.col{
+.col {
     border: none !important;
 }
-.table td{
+.table td {
     border: none !important;
 }
-.table th{
-    background-color: #BDBBAF !important;
+.table th {
+    background-color: #bdbbaf !important;
     border: none !important;
-=======
-.btn-primary {
-    color: #efeee3;
-    background-color: #84837a;
-    border-color: #84837a;
->>>>>>> Stashed changes
 }

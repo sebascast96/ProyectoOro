@@ -48,114 +48,109 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <<<<<<< Updated upstream <button class="navbar-toggler" type="button" data-toggle="collapse"
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icono"><i class="fas fa-bars"></i></span>
-                    =======
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                        >>>>>>> Stashed changes
-                    </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav mr-auto">
 
-                        </ul>
+                </button>
 
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                @if (Route::has('login'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                    </li>
-                                @endif
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav mr-auto">
 
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
-                                    </li>
-                                @endif
-                            @else
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            @if (Route::has('login'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                </li>
+                            @endif
+
+                            @if (Route::has('register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                                </li>
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button"
+                                    v-pre>
+                                    Dashboard
+                                </a>
+                            </li>
+                            @can('see-clients')
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button"
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('clients.index') }}" role="button"
                                         v-pre>
-                                        Dashboard
+                                        Clientes
                                     </a>
                                 </li>
-                                @can('see-clients')
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link" href="{{ route('clients.index') }}"
-                                            role="button" v-pre>
-                                            Clientes
-                                        </a>
-                                    </li>
-                                @endcan
-                                @can('see-products')
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link" href="{{ route('products.index') }}"
-                                            role="button" v-pre>
-                                            Productos
-                                        </a>
-                                    </li>
-                                @endcan
-                                @can('see-sellers')
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link" href="{{ route('sellers.index') }}"
-                                            role="button" v-pre>
-                                            Vendedores
-                                        </a>
-                                    </li>
-                                @endcan
-                                @can('see-employees')
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link" href="{{ route('employees.index') }}"
-                                            role="button" v-pre>
-                                            Empleados
-                                        </a>
-                                    </li>
-                                @endcan
+                            @endcan
+                            @can('see-products')
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link" href="{{ route('sales.index') }}"
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('products.index') }}"
                                         role="button" v-pre>
-                                        Ventas
+                                        Productos
                                     </a>
                                 </li>
-                                @can('see-suppliers')
-                                    <li class="nav-item dropdown">
-                                        <a id="navbarDropdown" class="nav-link" href="{{ route('suppliers.index') }}"
-                                            role="button" v-pre>
-                                            Proveedores
-                                        </a>
-                                    </li>
-                                @endcan
-
+                            @endcan
+                            @can('see-sellers')
                                 <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('sellers.index') }}" role="button"
+                                        v-pre>
+                                        Vendedores
+                                    </a>
+                                </li>
+                            @endcan
+                            @can('see-employees')
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('employees.index') }}"
+                                        role="button" v-pre>
+                                        Empleados
+                                    </a>
+                                </li>
+                            @endcan
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('sales.index') }}" role="button"
+                                    v-pre>
+                                    Ventas
+                                </a>
+                            </li>
+                            @can('see-suppliers')
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('suppliers.index') }}"
+                                        role="button" v-pre>
+                                        Proveedores
+                                    </a>
+                                </li>
+                            @endcan
+
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                        Cerrar Sesión
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();">
-                                            Cerrar Sesión
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
+                </div>
             </div>
         </nav>
 
