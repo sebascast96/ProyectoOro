@@ -39,6 +39,7 @@
 
 </head>
 <body class="banner-area">
+    <img src="../img/Good Gold.svg" class="logo-login">
     <div class=" justify-content-center1">
         <div class="row justify-content-center">
             <div class="col-md-12">
