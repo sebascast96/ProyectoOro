@@ -16,15 +16,11 @@
                 headers: myHeaders,
                 redirect: 'follow'
             };
+            var rate;
             fetch(`http://www.floatrates.com/daily/usd.json`)
                 .then(response => response.json())
                 .then(data => {
-                    const rate = "" + data.mxn.rate;
-                    swal({
-                        title: "El dolar esta a",
-                        text: rate,
-                        icon: "success",
-                    });
+                    rate = "" + data.mxn.rate;
                 }).catch(err => {
                     if (err) {
                         swal("Oh noes!", err, "error");
@@ -36,11 +32,11 @@
                 .then(fetch(`https://www.goldapi.io/api/XAU/USD`, requestOptions)
                     .then(response => response.json())
                     .then(data => {
-                        const rate = "" + data.price;
+                        const rateo = "" + data.price;
                         swal({
-                            title: "El dolar esta a",
-                            text: rate,
-                            icon: "success",
+                            title: "Precios",
+                            text: "El oro esta a " + rateo + " y el dolar a " + rate,
+                            icon: "{{ url('../favicon.svg') }}",
                         });
                     })).catch(err => {
                     if (err) {
