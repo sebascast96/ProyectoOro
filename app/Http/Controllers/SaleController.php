@@ -10,7 +10,7 @@ use Yajra\Datatables\Datatables;
 
 class SaleController extends Controller
 {
-  /**
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -27,13 +27,13 @@ class SaleController extends Controller
     {
         $sales = Sale::query();
         return Datatables::of($sales)
-        ->addColumn('actions', function ($sale) {
-            return view('sales.buttons',compact('sale'));
-         })
-         ->make(true);
+            ->addColumn('actions', function ($sale) {
+                return view('sales.buttons', compact('sale'));
+            })
+            ->make(true);
     }
 
-     /**
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -63,10 +63,10 @@ class SaleController extends Controller
      */
     public function show($id)
     {
-        $sale = Sale::find($id)->with('employee','seller','products','client')->first();
-        return view('sales.show',compact('sale'));
+        $sale = Sale::find($id)->with('employee', 'seller', 'products', 'client')->first();
+        return view('sales.show', compact('sale'));
     }
-        /**
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -77,7 +77,7 @@ class SaleController extends Controller
         $products = $sale->with('products')->first();
         dd($products);
         return Datatables::of($products)
-         ->make(true);
+            ->make(true);
     }
 
     /**
@@ -91,7 +91,7 @@ class SaleController extends Controller
         //
     }
 
-     /**
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -114,10 +114,10 @@ class SaleController extends Controller
         $sale = Sale::find($id);
         $sale->delete();
     }
-     /**
+    /**
      * Open sales dashboard
      *
-     * @param  
+     * @param
      * @return \Illuminate\Http\Response
      */
     public function dashboard()
@@ -125,15 +125,28 @@ class SaleController extends Controller
         $products = Product::all();
         return view('sales.dashboard', ['products' => $products]);
     }
-     /**
+    /**
      * Open sales dashboard
      *
-     * @param  
+     * @param
      * @return \Illuminate\Http\Response
      */
-    public function fillClientsSelect(Request $request)
+    public function fillClientsSelect()
     {
-        $clients = Client::all();
+        $noClient = new Client();
+        $noClient->id = -1;
+        $noClient->name = 'Sin cliente';
+        $clients = Client::all()->prepend($noClient);
         return $clients->toJson();
+    }
+    /**
+     * Open sales dashboard
+     *
+     * @param
+     * @return \Illuminate\Http\Response
+     */
+    public function finish(Request $request)
+    {
+        dd($request);
     }
 }

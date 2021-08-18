@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    @include('sweet::alert')
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- DataTables -->
@@ -39,6 +42,7 @@
 
 
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-color shadow-sm">
@@ -46,8 +50,12 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icono"><i class="fas fa-bars"></i></span>
+
+
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -73,60 +81,67 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('dashboard')}}" role="button" v-pre>
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('dashboard') }}" role="button"
+                                    v-pre>
                                     Dashboard
                                 </a>
                             </li>
                             @can('see-clients')
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('clients.index')}}" role="button" v-pre>
-                                    Clientes
-                                </a>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('clients.index') }}" role="button"
+                                        v-pre>
+                                        Clientes
+                                    </a>
+                                </li>
                             @endcan
                             @can('see-products')
-                                 <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('products.index')}}" role="button" v-pre>
-                                    Productos
-                                </a>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('products.index') }}"
+                                        role="button" v-pre>
+                                        Productos
+                                    </a>
+                                </li>
                             @endcan
-                           @can('see-sellers')
-                               <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('sellers.index')}}" role="button" v-pre>
-                                    Vendedores
-                                </a>
-                            </li>
-                           @endcan
+                            @can('see-sellers')
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('sellers.index') }}" role="button"
+                                        v-pre>
+                                        Vendedores
+                                    </a>
+                                </li>
+                            @endcan
                             @can('see-employees')
-                                 <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('employees.index')}}" role="button" v-pre>
-                                    Empleados
-                                </a>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('employees.index') }}"
+                                        role="button" v-pre>
+                                        Empleados
+                                    </a>
+                                </li>
                             @endcan
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('sales.index')}}" role="button" v-pre>
+                                <a id="navbarDropdown" class="nav-link" href="{{ route('sales.index') }}" role="button"
+                                    v-pre>
                                     Ventas
                                 </a>
                             </li>
                             @can('see-suppliers')
-                                     <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link" href="{{route('suppliers.index')}}" role="button" v-pre>
-                                    Proveedores
-                                </a>
-                            </li>
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="nav-link" href="{{ route('suppliers.index') }}"
+                                        role="button" v-pre>
+                                        Proveedores
+                                    </a>
+                                </li>
                             @endcan
 
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                         document.getElementById('logout-form').submit();">
                                         Cerrar Sesión
                                     </a>
 
@@ -145,8 +160,7 @@
             @yield('content')
         </main>
     </div>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    @include('sweet::alert')
+
 </body>
 
 </html>

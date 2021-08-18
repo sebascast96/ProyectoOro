@@ -25,10 +25,10 @@ class ClientController extends Controller
     {
         $clients = Client::query();
         return Datatables::of($clients)
-        ->addColumn('actions', function ($client) {
-            return view('clients.buttons',compact('client'));
-         })
-         ->make(true);
+            ->addColumn('actions', function ($client) {
+                return view('clients.buttons', compact('client'));
+            })
+            ->make(true);
     }
 
     /**
@@ -51,7 +51,7 @@ class ClientController extends Controller
     {
 
         Client::create($request->except('_token'));
-        return redirect()->route('products.index');
+        return redirect()->route('clients.index');
     }
 
     /**
