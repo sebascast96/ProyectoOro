@@ -131,12 +131,22 @@ class SaleController extends Controller
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function fillClientsSelect(Request $request)
+    public function fillClientsSelect()
     {
         $noClient = new Client();
         $noClient->id = -1;
         $noClient->name = 'Sin cliente';
         $clients = Client::all()->prepend($noClient);
         return $clients->toJson();
+    }
+    /**
+     * Open sales dashboard
+     *
+     * @param
+     * @return \Illuminate\Http\Response
+     */
+    public function finish(Request $request)
+    {
+        dd($request);
     }
 }

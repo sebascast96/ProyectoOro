@@ -38,11 +38,14 @@
                                         <p class="card-text" id="price {{ $product->id }}">Precio unitario:
                                             {{ $product->price_perunit }}</p>
                                         <p class="card/text">En existencia: {{ $product->amount }}</p>
-                                        <p>Cantidad:</p>
-                                        <input type="number"
-                                            onkeyup="calc({{ $product->id }},{{ $product->price_perunit }})"
-                                            id="text {{ $product->id }}" class="form-control">
-                                        <p class="text-right" id="total {{ $product->id }}">Total: </p>
+                                        <div class="row">
+                                            <p class="col-2">Cantidad:</p>
+                                            <input type="number"
+                                                onkeyup="calc({{ $product->id }},{{ $product->price_perunit }})"
+                                                id="text {{ $product->id }}" class="form-control col-3">
+                                            <p class="text-right col-7" id="total {{ $product->id }}">Total: </p>
+                                        </div>
+
                                     </div>
                                 </div>
                             @endforeach
