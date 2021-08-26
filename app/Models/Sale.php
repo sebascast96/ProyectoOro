@@ -22,7 +22,7 @@ class Sale extends Model
 
     public function products()
     {
-        return $this->belongsToMany(Product::class, 'products_sales', 'sale_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'products_sales', 'sale_id', 'product_id')->withPivot('amount_sold');
     }
 
     public function employee()
@@ -39,5 +39,4 @@ class Sale extends Model
     {
         return $this->belongsTo(Seller::class);
     }
-
 }

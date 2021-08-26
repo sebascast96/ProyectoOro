@@ -51,8 +51,10 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
+        dd("Hola");
         Sale::create($request->except('_token'));
-        return redirect()->route('sales.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -65,19 +67,6 @@ class SaleController extends Controller
     {
         $sale = Sale::find($id)->with('employee', 'seller', 'products', 'client')->first();
         return view('sales.show', compact('sale'));
-    }
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function getProducts(Sale $sale)
-    {
-        $products = $sale->with('products')->first();
-        dd($products);
-        return Datatables::of($products)
-            ->make(true);
     }
 
     /**
