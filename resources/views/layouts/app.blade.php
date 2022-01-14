@@ -49,7 +49,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-color shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="../img/Good Gold-alt.svg" class="logo-nav" alt="">
+                    <img src="../img/puntodeventa_alt.svg" class="logo-nav" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

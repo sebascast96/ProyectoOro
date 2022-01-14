@@ -4,8 +4,11 @@
     width: 100%;
     height: 100;
     background-image: url(../img/BG.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+    background-color: #110b39 !important;
 }
 .justify-content-center1 {
     height: 100%;
@@ -13,48 +16,56 @@
     display: flex;
     align-content: flex-end;
     align-items: center;
-    margin-top: 15rem;
+    margin-top: 22rem;
+}
+#centered {
+    margin-left:auto;
+    margin-right:auto;
+    display: table-cell; // here is the trick
+    vertical-align:middle; // and this
+    height:200px;
+    border:1px solid blue;
 }
 .login-card {
-    background-color: #9e9d93 !important;
+    background-color: #edf2f5 !important;
     border: none !important;
     border-radius: 1em 1em 1em 1em !important;
 }
 .btn-login {
     color: #efeee3 !important;
-    background-color: #4c4b46 !important;
-    border-color: #4c4b46 !important;
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
 }
 .btn-login:hover {
-    background-color: #84837a !important;
-    border-color: #84837a !important;
+    background-color: #ffebcf !important;
+    border-color: #ffebcf !important;
 }
 .welcome {
     padding: 0.75rem 1.25rem !important;
     color: #efeee3 !important;
-    background-color: #dcb774 !important;
+    background-color: #ffb846 !important;
     border: none !important;
     border-radius: 1em 1em 0 0 !important;
     margin-bottom: 0 !important;
 }
 .login-screen {
-    color: #efeee3 !important;
-    background-color: #9e9d93 !important;
+    color: #87849b !important;
+    background-color: #edf2f5 !important;
     border: none !important;
     border-radius: 0 0 1em 1em;
 }
 .login-link {
-    color: #4c4b46 !important;
+    color: #201b46 !important;
 }
 
 .card-header {
     border: none !important;
-    color: #d9d9d9 !important;
-    background-color: #efeee3 !important;
+    color: #110b39 !important;
+    background-color: #d9d9d9 !important;
     padding: 0.75rem 1.25rem !important;
 }
 .bg-color {
-    background-color: #575652 !important;
+    background-color: #110b39 !important;
 }
 .collapse {
 }
@@ -90,10 +101,10 @@
     color: #ffffff !important;
 }
 .nav-link {
-    color: #cfa95f !important;
+    color: #ffb846 !important;
 }
 .nav-link:hover {
-    color: #cfb88c !important;
+    color: #ffebcf !important;
 }
 .navbar-collapse {
 }
@@ -107,7 +118,7 @@
     border: none !important;
 }
 .navbar-toggler-icono {
-    color: #cfa95f !important;
+    color: #ffb846 !important;
 }
 .navbar-toggler-icono:hover {
     color: #cfb88c !important;
@@ -125,19 +136,22 @@
 .btn-success {
 }
 .card {
-    background-color: #9d9b90 !important;
+    background-color: #edf2f5 !important;
     border: none !important;
     border-radius: 1em 1em 1em 1em !important;
 }
 .card-body {
-    background-color: #9e9b90 !important;
+    background-color: #edf2f5 !important;
     border-radius: 1em 1em 1em 1em !important;
 }
 .card-header {
     font-family: "Roboto", sans-serif;
-    color: #4c4b46 !important;
-    background-color: #efede0 !important;
-    border-color: #efede0 !important;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    color: #110b39 !important;
+    background-color: #d9d9d9 !important;
+    border-color: #d9d9d9 !important;
     border-radius: 1em 1em 0 0 !important;
 }
 .col-md-12 {
@@ -156,17 +170,53 @@
 }
 .table {
     font-family: "Roboto", sans-serif;
-    color: #4c4b46 !important;
-    border: none !important;
+    color: #262626 !important;
 }
 .table-bordered {
 }
 .table-striped {
     border-radius: 0.5em 0.5em 0.5em 0.5em !important;
 }
-.pagination-button {
-    background-color: #9e9b8f !important;
-    border-color: #9e9b8f !important;
+.pagination button {
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
+}
+.pagination button :hover {
+    background-color: #cfb88c !important;
+    border-color: #cfb88c !important;
+}
+.paginate-button {
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
+}
+.paginate-button :hover {
+    background-color: #cfb88c !important;
+    border-color: #cfb88c !important;
+}
+.paginate-button :disabled {
+    background-color: #917447 !important;
+    border-color: #917447 !important;
+}
+.previous {
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
+}
+.previous :disabled{
+    background-color: #917447 !important;
+    border-color: #917447 !important;
+}
+.next {
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
+}
+.next :disabled{
+    background-color: #917447 !important;
+    border-color: #917447 !important;
+}
+.page-item.disabled .page-link {
+    color: #d9d9d9 !important;
+    background-color: #917447 !important;
+    border-color: #917447 !important;
 }
 .odd {
     background-color: #ffffff !important;
@@ -178,9 +228,17 @@
 .table td {
     border: none !important;
 }
-.table th {
-    background-color: #bdbbaf !important;
+.table tr {
     border: none !important;
+    border-radius: 0.5em 0.5em 0.5em 0.5em !important;
+}
+.table th {
+    background-color: #ffffff !important;
+    border-color: #d9d9d9 !important;
+    color: #110b39 !important;
+}
+.btn-primary {
+
 }
 .push{
 
@@ -192,6 +250,6 @@
 }
 
 .logo-nav{
-    height:100px;
-    width:100px;
+    height:100%;
+    width:60%;
 }

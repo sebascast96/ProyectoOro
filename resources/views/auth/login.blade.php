@@ -48,7 +48,7 @@
                 <div class="card login-card">
                     <div class="welcome text-center">{{ __('¡Bienvenido!') }}</div>
 
-                    <div class="card-body login-screen">
+                    <div id="centered" class="card-body login-screen">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
