@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-header">Ventas
                         </div>
-                        <form action="{{ route('sales.finish') }}">
+                        <form action="{{ route('sales.finished') }}">
                             <div class="card-body">
                                 <div class="row">
                                     <label class="col-3 text-center">Fecha:</label>
@@ -19,39 +19,39 @@
                                 </div>
 
                                 <div class="row">
-                                    <label class="col-3 text-center">Cliente:</label>
+                                    <label class="col-3 text-center">Productos:</label>
                                     <select class="select2client form-control col-5" name="clients"></select>
-                                    @can('create-clients')
-                                        <a class="btn btn-success col-1" href="{{ route('clients.create') }}">
-                                            <span>
-                                                <i class="fas fa-user-plus"></i>
-                                            </span>
-                                        </a>
-                                    @endcan
+
+                                    <a class="btn btn-success col-1" href="{{ route('clients.create') }}">
+                                        <span>
+                                            <i class="fas fa-plus"></i>
+                                        </span>
+                                    </a>
                                 </div>
-
-
-                                @foreach ($products as $product)
-                                    <div class="card" class="col-4">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ $product->name }}</h5>
-                                            <p class="card-text">{{ $product->description }}</p>
-                                            <p class="card-text" id="price {{ $product->id }}">Precio unitario:
-                                                {{ $product->price_perunit }}</p>
-                                            <p class="card/text">En existencia: {{ $product->amount }}</p>
-                                            <div class="row">
-                                                <p class="col-2">Cantidad:</p>
-                                                <input type="number"
-                                                    onkeyup="calc({{ $product->id }},{{ $product->price_perunit }})"
-                                                    id="text {{ $product->id }}" class="form-control col-3">
-                                                <p class="text-right col-7" id="total {{ $product->id }}">Total: </p>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                @endforeach
-                                <p class="text-right" id="total">Subtotal: $0.00</p>
-                                <p class="text-right">Iva: $0.00</p>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Id</th>
+                                            <th scope="col">Nombre</th>
+                                            <th scope="col">Precio unitario</th>
+                                            <th scope="col">Cantidad</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>2</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td><input type="text"></td>
+                                        </tr>
+                                        <tr>
+                                            <th>3</th>
+                                            <td>Jacob</td>
+                                            <td>Thornton</td>
+                                            <td><input type="text"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <p class="text-right">Total: $0.00</p>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                     <button type="submit" class="btn btn-primary">Finalizar venta</button>
@@ -85,7 +85,7 @@
             $select2client = $('.select2client').select2({
                 placeholder: "¿Que cliente esta comprando?",
                 ajax: {
-                    url: '/fill-clients',
+                    url: '/fill-products',
                     dataType: 'json',
                     type: 'GET',
                     processResults: function(data) {

@@ -19,12 +19,12 @@
     margin-top: 22rem;
 }
 #centered {
-    margin-left:auto;
-    margin-right:auto;
+    margin-left: auto;
+    margin-right: auto;
     display: table-cell; // here is the trick
-    vertical-align:middle; // and this
-    height:200px;
-    border:1px solid blue;
+    vertical-align: middle; // and this
+    height: 200px;
+    border: 1px solid blue;
 }
 .login-card {
     background-color: #edf2f5 !important;
@@ -201,7 +201,7 @@
     background-color: #ffb846 !important;
     border-color: #ffb846 !important;
 }
-.previous :disabled{
+.previous :disabled {
     background-color: #917447 !important;
     border-color: #917447 !important;
 }
@@ -209,7 +209,7 @@
     background-color: #ffb846 !important;
     border-color: #ffb846 !important;
 }
-.next :disabled{
+.next :disabled {
     background-color: #917447 !important;
     border-color: #917447 !important;
 }
@@ -238,18 +238,37 @@
     color: #110b39 !important;
 }
 .btn-primary {
-
+    background-color: #ffb846 !important;
+    border-color: #ffb846 !important;
 }
-.push{
-
+.btn-xlarge {
+    padding: 66px 56px !important;
+    font-size: 66px !important;
+    line-height: normal !important;
+    -webkit-border-radius: 8px !important;
+    -moz-border-radius: 8px !important;
+    border-radius: 8px !important;
+}
+.push {
 }
 
-.logo-login{
-    height:100px;
-    width:100px;
+.end-sale-cont {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
 }
 
-.logo-nav{
-    height:100%;
-    width:60%;
+.buttons-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-login {
+    height: 100px;
+    width: 100px;
+}
+
+.logo-nav {
+    height: 100%;
+    width: 60%;
 }

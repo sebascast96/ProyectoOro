@@ -67,7 +67,7 @@ Route::DELETE('products/supplier/{supplier}', [SupplierController::class, 'remov
 /*Rutas de Ventas*/
 Route::resource('sales', SaleController::class)->except('update')->middleware(['auth']);
 Route::GET('sales-dashboard', [SaleController::class, 'dashboard'])->name('dashboard');
-Route::GET('fill-clients', [SaleController::class, 'fillClientsSelect'])->middleware(['auth']);
+Route::GET('fill-products', [SaleController::class, 'fillProductsSelect'])->middleware(['auth']);
 Route::GET('sales/prod/{sale}', [SaleController::class, 'getProducts'])->middleware(['auth']);
 Route::POST('sales/update', [SaleController::class, 'update'])->name('sales.update')->middleware(['auth']);
-Route::POST('sales/finish', [SaleController::class, 'finish'])->name('sales.finish')->middleware(['auth']);
+Route::GET('sale/finished', [SaleController::class, 'finish'])->name('sales.finished')->middleware(['auth']);

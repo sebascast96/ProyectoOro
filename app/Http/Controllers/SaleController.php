@@ -120,12 +120,9 @@ class SaleController extends Controller
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function fillClientsSelect()
+    public function fillProductsSelect()
     {
-        $noClient = new Client();
-        $noClient->id = -1;
-        $noClient->name = 'Sin cliente';
-        $clients = Client::all()->prepend($noClient);
+        $clients = Product::all();
         return $clients->toJson();
     }
     /**
@@ -134,8 +131,9 @@ class SaleController extends Controller
      * @param
      * @return \Illuminate\Http\Response
      */
-    public function finish(Request $request)
+    public function finish()
     {
-        dd($request);
+        $sale = Sale::all();
+        return view('sales.finished-sale');
     }
 }
