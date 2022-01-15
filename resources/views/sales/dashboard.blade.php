@@ -22,11 +22,11 @@
                                     <label class="col-3 text-center">Productos:</label>
                                     <select class="select2client form-control col-5" name="clients"></select>
 
-                                    <a class="btn btn-success col-1" href="{{ route('clients.create') }}">
+                                    <button class=" btn-outline-add btn-sm" href="{{ route('clients.create') }}">
                                         <span>
                                             <i class="fas fa-plus"></i>
                                         </span>
-                                    </a>
+                                    </button>
                                 </div>
                                 <table class="table">
                                     <thead>
@@ -54,7 +54,7 @@
                                 </table>
                                 <p class="text-right">Total: $0.00</p>
                                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="submit" class="btn btn-primary">Finalizar venta</button>
+                                    <button type="submit" class="btn btn-primary">Confirmar</button>
                                 </div>
                             </div>
                         </form>
