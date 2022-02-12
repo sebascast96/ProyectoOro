@@ -48,7 +48,7 @@
                                                         <span class="fas fa-minus"></span>
                                                     </button>
                                                 </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="1000">
+                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="0" max="1000">
                                                 <span class="input-group-btn">
                                                     <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
                                                         <span class="fas fa-plus"></span>
@@ -62,13 +62,13 @@
                                             <td>60.00</td>
                                             <td><div class="input-group">
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[1]">
+                                                    <button type="button" class="btn btn-default btn-number" data-type="minus" data-field="quant[2]">
                                                         <span class="fas fa-minus"></span>
                                                     </button>
                                                 </span>
-                                                <input type="text" name="quant[1]" class="form-control input-number" value="1" min="1" max="1000">
+                                                <input type="text" name="quant[2]" class="form-control input-number" value="1" min="0" max="1000">
                                                 <span class="input-group-btn">
-                                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[1]">
+                                                    <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quant[2]">
                                                         <span class="fas fa-plus"></span>
                                                     </button>
                                                 </span>
@@ -120,6 +120,7 @@
         input.val(0);
     }
 });
+
 $('.input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
